@@ -1,0 +1,8 @@
+<div>
+<p> Hello <%= @user["user_name"] %> </p>
+<p> Role:  <%= @user["role"] %> </p>
+<form method="post" action='/upgrade'>
+<input type="hidden" name="_method" value="put">
+<input type="submit" value="upgrade" name="submit">
+</form>
+<div>
