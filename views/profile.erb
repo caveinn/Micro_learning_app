@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header">
+        <%@user.user_name%> Profile
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                Username:
+            </div>
+            <div class="col">
+                <%= @user.user_name%>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col">
+                Email:
+            </div>
+            <div class="col">
+                <%= @user.email%>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Role:
+            </div>
+            <div class="col">
+                <%= @user.role%>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Interests:
+            </div>
+            <div class="col">
+                <%= @user.interests%>
+            </div>
+        </div>
+    </div>
+</div>
