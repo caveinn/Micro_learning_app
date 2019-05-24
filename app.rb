@@ -3,7 +3,6 @@ require 'sinatra/activerecord'
 require 'bcrypt'
 
 
-set :database, {adapter: "postgresql", database: "micro_learning2"}
 enable :sessions
 
 class User < ActiveRecord::Base
@@ -15,8 +14,7 @@ class Tutorial < ActiveRecord::Base
 end
 
 get "/" do 
-    @users = User.all 
-    
+   "Welcome to the micro-learning app"    
 end
 
 get "/signup" do
@@ -25,6 +23,7 @@ end
 
 post "/signup" do
     password = BCrypt::Password.create(params["password"])
+    puts params.inspect
     user_name = params["user_name"]
     email = params["email"]
     role = "reader"

@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: micro_learning2
+
+
+test:
+  adapter: postgresql
+  database: test

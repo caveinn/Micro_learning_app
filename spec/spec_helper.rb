@@ -10,5 +10,4 @@ module RSpecMixin
   def app() Sinatra::Application end
 end
 
-# For RSpec 2.x and 3.x
 RSpec.configure { |c| c.include RSpecMixin }

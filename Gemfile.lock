@@ -62,6 +62,7 @@ DEPENDENCIES
   rack-test
   rake
   rspec
+  rspec-core
   sinatra
   sinatra-activerecord
 
