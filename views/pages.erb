@@ -1,0 +1,14 @@
+<div class="spaced">
+<% @tutorials.each do |tutorial|%>
+<a class="card" href="/tutorial/<%= tutorial.id%>">
+<div class="card-header">
+    <%=tutorial.title%>
+</div>
+<div class="card-body">
+<h4 class="text-muted"><i><%= tutorial.topic%></i></h4>
+<p><%=tutorial.content%></p>
+</div>
+</a>
+<br>
+<% end %>
+</div>

@@ -1,0 +1,42 @@
+<form class="form-horizontal" action='/update_profile' method="POST">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Upadate</legend>
+    </div>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="user_name">Username</label>
+      <div class="controls">
+        <input type="text" id="user_name" name="user_name" class="input-xlarge" value= <%= @user.user_name %> >
+      </div>
+    </div>
+     <br>
+    <div class="control-group">
+      <!-- Interests -->
+      <label class="control-label"  for="interests">Interests</label>
+      <div class="controls">
+        <input type="text" id="interests" name="interests" class="input-xlarge" value= <%= @user.interests %> >
+        <p class="help-block">Pleace enter your interests separated by commas </p>
+      </div>
+    </div>
+
+    <div class="control-group">
+     <div class="input-group">
+        <div class="input-group-prepend">
+            <div>
+             <label class="control-label" >Role</label><br>
+            <input type="radio" name="role" value="reader" <%= "checked" if @user.role == "reader"%>> Reader <br>
+             <input type="radio" name="role" value="writer"  <%= "checked" if @user.role == "writer"%> > Writer <br>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+      <br>
+      <div class="controls">
+        <button class="btn btn-success">Update</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

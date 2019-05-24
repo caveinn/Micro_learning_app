@@ -1,0 +1,15 @@
+.spaced{
+    margin-top: 5em;
+}
+.small_spaced{
+    margin-top: 2em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.spaced a{
+    text-decoration: none;
+    color: black;
+} 
