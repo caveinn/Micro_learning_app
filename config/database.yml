@@ -6,3 +6,11 @@ development:
 test:
   adapter: postgresql
   database: test
+
+production:
+  adapter: postgresql
+  database: <%= ENV["DB_NAME"]%>
+  password: <%= ENV["DB_PASSWORD"]%>
+  host: <%= ENV["DB_HOST"]%>
+  user: <%= ENV["DB_USER"]%>
+  

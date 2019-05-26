@@ -12,9 +12,9 @@ describe "My Sinatra Application" do
     get "/login"
     expect(last_response.status).to eq 200
   end
-  it "should render home" do
+  it "should render redirect if not logged in" do
     get "/tutorial"
-    expect(last_response.status).to eq 200
+    expect(last_response.status).to eq 302
   end
   it "should render home" do
     get "/"

@@ -22,6 +22,7 @@ get "/signup" do
 end
 
 post "/signup" do
+    # create a new user
     password = BCrypt::Password.create(params["password"])
     puts params.inspect
     user_name = params["user_name"].strip
@@ -36,6 +37,7 @@ get "/login" do
 end
 
 post "/login" do
+    #authenticat a user
     user = User.find_by(user_name: params["user_name"].strip)
     user_pass = BCrypt::Password.new(user.password)
     if user_pass == params["password"] 
@@ -47,6 +49,7 @@ post "/login" do
 end
 
 get "/profile" do 
+    # display user info
     unless session.has_key?("user_name")  
         @error = "kindly log in"
         redirect "/login"
@@ -56,6 +59,7 @@ get "/profile" do
 end 
 
 get "/update_profile" do 
+    # update users info allowing them to become writers
     unless session.has_key?("user_name")  
         redirect "/login"
     end
@@ -64,6 +68,7 @@ get "/update_profile" do
 end
 
 get "/tutorial" do
+    # get a tutorial form to display to the user
     unless session.has_key?("user_name")  
         redirect "/login"
     end
@@ -71,9 +76,8 @@ get "/tutorial" do
 end
 
 post "/tutorial" do
+    # create a new tutorial entry
     unless session.has_key?("user_name") 
-        @error = "please login"
-        
         redirect "/login"
     end
     user  = User.find_by(user_name: session["user_name"] )
@@ -82,12 +86,14 @@ post "/tutorial" do
 end
 
 get "/tutorial/:id" do
+    # get a single tutorial entry from the DB
     @tutorial = Tutorial.find_by(id: params[:id])
     puts ENV["RACK_ENV"]
     erb :tutorial
 end
 
 post '/update_profile' do
+    # update users info in the database
     puts params.inspect
     user = User.find_by(user_name: session["user_name"])
     user.user_name = params["user_name"]
@@ -98,6 +104,7 @@ post '/update_profile' do
 end
 
 get "/pages" do
+    # show all the available tutorials
     @tutorials = Tutorial.all
     erb :pages
 end
